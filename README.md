@@ -1,10 +1,10 @@
-[index.html](https://github.com/user-attachments/files/25619312/index.html)
+[index.html](https://github.com/user-attachments/files/25619460/index.html)
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tu producto – Comprar ahora</title>
+  <title>X2 VITA. L SUPLEMENTO – Comprar ahora</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
@@ -68,17 +68,41 @@
       .hero { grid-template-columns: 1fr; gap: 32px; padding: 32px 0 48px; }
     }
 
-    .hero-image {
+    .gallery-main {
       aspect-ratio: 1;
       background: var(--surface);
       border-radius: 20px;
       overflow: hidden;
       border: 1px solid var(--border);
     }
-    .hero-image img {
+    .gallery-main img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+    }
+
+    .gallery-thumbs {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .thumb {
+      appearance: none;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      border-radius: 12px;
+      overflow: hidden;
+      padding: 0;
+      cursor: pointer;
+      aspect-ratio: 1;
+      transition: transform 0.12s, border-color 0.12s, box-shadow 0.12s;
+    }
+    .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .thumb:hover { transform: translateY(-1px); border-color: rgba(34, 197, 94, 0.5); }
+    .thumb[aria-current="true"] {
+      border-color: rgba(34, 197, 94, 0.9);
+      box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.16);
     }
 
     .hero-content h1 {
@@ -105,16 +129,15 @@
       margin-bottom: 8px;
     }
     .price { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 2rem; color: var(--accent); }
-    .price-old { font-size: 1.15rem; color: var(--text-muted); text-decoration: line-through; }
-    .save-badge {
-      background: var(--badge);
-      color: var(--accent);
-      font-size: 0.8rem;
-      font-weight: 600;
-      padding: 4px 10px;
-      border-radius: 6px;
-    }
     .stock-note { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 24px; }
+    .product-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin: 0 0 22px;
+      max-width: 58ch;
+    }
+    .product-desc strong { color: var(--text); font-weight: 600; }
+    .product-desc .line { display: block; margin-top: 10px; }
     .cta-block { margin-bottom: 20px; }
     .btn {
       display: inline-flex;
@@ -293,19 +316,26 @@
   <main>
     <section class="hero" id="producto">
       <div class="container" style="display: contents;">
-        <div class="hero-image">
-          <!-- Cambia la URL por la imagen de tu producto -->
-          <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&h=600&fit=crop" alt="Producto">
+        <div>
+          <div class="gallery-main">
+            <img id="main-image" src="https://cdn.shopify.com/s/files/1/0685/3292/8582/files/AWIN3158.jpg?v=1770140589" alt="X2 VITA. L SUPLEMENTO">
+          </div>
+          <div class="gallery-thumbs" id="thumbs" aria-label="Galería de imágenes del producto"></div>
         </div>
         <div class="hero-content">
-          <h1>X3 VITASUPLEMENTO</h1>
+          <h1>X2 VITA. L SUPLEMENTO</h1>
           <p class="reviews-badge">★ <strong>2,500+</strong> reseñas verificadas</p>
           <div class="price-row">
-            <span class="price">$115.00</span>
-            <span class="price-old">$130.00</span>
-            <span class="save-badge">Ahorra $15</span>
+            <span class="price">$79.99</span>
           </div>
-          <p class="stock-note">Disponibilidad limitada. ¡Reserva ya!</p>
+          <p class="stock-note">Compra segura. Envío y soporte según tu tienda.</p>
+          <div class="product-desc">
+            VITA es un suplemento nutricional que contiene vitaminas y minerales cuidadosamente seleccionados. Diseñado como complemento dentro de una rutina diaria de bienestar general.
+            <span class="line"><strong>Nota:</strong> Este producto no sustituye una alimentación balanceada. No está destinado a diagnosticar, tratar, curar ni prevenir ninguna enfermedad.</span>
+            <span class="line"><strong>Modo de uso sugerido:</strong> Tomar 1 sobre/cucharada (10 ml) al día como parte de una rutina alimentaria equilibrada.</span>
+            <span class="line"><strong>Forma de consumo:</strong> Tomar directamente o diluido en agua/tu bebida preferida.</span>
+            <span class="line"><strong>Recomendación:</strong> No exceder la dosis diaria recomendada. No sustituye una dieta variada y equilibrada ni un estilo de vida saludable.</span>
+          </div>
           <div class="cta-block">
             <a href="#pago" class="btn btn-primary" id="hero-cta">COMPRAR AHORA</a>
           </div>
@@ -367,7 +397,7 @@
         <h2>Pago seguro</h2>
         <p>Completa tu compra con tu método preferido. Redirigirás a un checkout seguro.</p>
         <div class="payment-box">
-          <div class="price">$115.00</div>
+          <div class="price">$79.99</div>
           <!-- OPCIÓN A: Enlace directo a tu checkout (Stripe, Mercado Pago, PayPal, etc.) -->
           <a href="https://tu-enlace-de-pago.com/checkout" class="btn btn-primary" id="payment-button" target="_blank" rel="noopener">
             Ir a pagar
@@ -412,6 +442,46 @@
 
     document.getElementById('payment-button').href = PAYMENT_URL;
     document.getElementById('hero-cta').href = '#pago';
+
+    // ——— GALERÍA DE IMÁGENES ———
+    const PRODUCT_IMAGES = [
+      { src: 'https://cdn.shopify.com/s/files/1/0685/3292/8582/files/AWIN3158.jpg?v=1770140589', alt: 'X2 VITA. L SUPLEMENTO' },
+      { src: 'https://cdn.shopify.com/s/files/1/0685/3292/8582/files/AWIN3158_3b82e95e-45de-49e5-a561-b8e9497a68fb.jpg?v=1770140589', alt: 'X2 VITA. L SUPLEMENTO - Imagen 2' },
+      { src: 'https://cdn.shopify.com/s/files/1/0685/3292/8582/files/UVVH8762.jpg?v=1770140588', alt: 'X2 VITA. L SUPLEMENTO - Imagen 3' },
+      { src: 'https://cdn.shopify.com/s/files/1/0685/3292/8582/files/KEOB6511.jpg?v=1770140588', alt: 'X2 VITA. L SUPLEMENTO - Imagen 4' },
+      { src: 'https://cdn.shopify.com/s/files/1/0685/3292/8582/files/551852016_840127905077673_1783281527957864970_n_9ec921f3-6e21-4b56-9635-4272f3d078ad.png?v=1770140589', alt: 'X2 VITA. L SUPLEMENTO - Imagen 5' },
+    ];
+
+    const mainImage = document.getElementById('main-image');
+    const thumbs = document.getElementById('thumbs');
+
+    function selectImage(idx) {
+      const item = PRODUCT_IMAGES[idx];
+      mainImage.src = item.src;
+      mainImage.alt = item.alt;
+      [...thumbs.querySelectorAll('button.thumb')].forEach((b, i) => {
+        b.setAttribute('aria-current', i === idx ? 'true' : 'false');
+      });
+    }
+
+    if (thumbs && mainImage) {
+      PRODUCT_IMAGES.forEach((img, idx) => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'thumb';
+        btn.setAttribute('aria-current', idx === 0 ? 'true' : 'false');
+        btn.setAttribute('aria-label', `Ver imagen ${idx + 1}`);
+
+        const el = document.createElement('img');
+        el.src = img.src;
+        el.alt = img.alt;
+        el.loading = 'lazy';
+
+        btn.appendChild(el);
+        btn.addEventListener('click', () => selectImage(idx));
+        thumbs.appendChild(btn);
+      });
+    }
   </script>
 </body>
 </html>
